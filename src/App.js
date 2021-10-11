@@ -1,12 +1,12 @@
 import React from 'react';
-import Joke from './pages/jokes/Joke';
+import Layout from './components/layout/Layout';
+import JokeBoard from './pages/jokes/JokeBoard';
 
 function App() {
   return (
-    <>
-      <div>hello world</div>
-      <Joke />
-    </>
+    <Layout>
+      <JokeBoard />
+    </Layout>
   );
 }
 

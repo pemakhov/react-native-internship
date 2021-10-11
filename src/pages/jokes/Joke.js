@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setNextJokeId, fetchAllJokes } from './jokeSlice';
+import { fetchAllJokes } from './jokeSlice';
 import { PENDING } from '../../constants/loadingStates';
 import { jokeTypes } from '../../constants/jokesApiInfo';
+import JokeView from './JokeView';
 
 const Joke = () => {
   const dispatch = useDispatch();
@@ -29,14 +30,7 @@ const Joke = () => {
     dispatch(fetchAllJokes());
   }, []);
 
-  return (
-    <div>
-      <div>
-        {joke}
-      </div>
-      <button type="button" onClick={() => dispatch(setNextJokeId())}>Next</button>
-    </div>
-  );
+  return <JokeView joke={joke} />;
 };
 
 export default Joke;
