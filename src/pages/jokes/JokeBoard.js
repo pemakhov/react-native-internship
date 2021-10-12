@@ -4,10 +4,10 @@ import JokeSwitchBar from './JokeSwitchBar';
 
 const JokeBoard = () => {
   return (
-    <>
+    <div className="centred-container main-container">
       <Joke />
       <JokeSwitchBar />
-    </>
+    </div>
   );
 };
 

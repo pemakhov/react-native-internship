@@ -1,0 +1,42 @@
+body {
+  background-color: #eaeaea;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header,
+main,
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background-color: #e8dab2;
+}
+
+main {
+  flex: 1;
+  background-color: #c0d6df;
+  justify-content: center;
+}
+
+footer {
+  background-color: #4f6d7a;
+}
+
+.centred-container {
+  max-width: 1200px;
+  width: 100%;
+  background-color: white;
+}
+
+.main-container {
+  flex-grow: 1;
+  background-color: aquamarine;
+}

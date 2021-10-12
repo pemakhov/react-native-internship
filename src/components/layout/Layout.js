@@ -5,13 +5,17 @@ const Layout = ({ children }) => {
   return (
     <>
       <header>
-        Header
+        <div className="centred-container">
+          Header
+        </div>
       </header>
       <main>
         {children}
       </main>
       <footer>
-        Footer
+        <div className="centred-container">
+          By Serhii Pemakhov for ONIX react-native internship 2021-2022
+        </div>
       </footer>
     </>
   );
