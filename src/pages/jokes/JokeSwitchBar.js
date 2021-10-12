@@ -7,7 +7,7 @@ const JokeSwitchBar = () => {
   const jokesNumber = useSelector((state) => state.jokes.collection.length);
 
   return (
-    <div>
+    <div className="joke-switch">
       <button type="button" onClick={() => dispatch(setJokeId(0))}>{'<<'}</button>
       <button type="button" onClick={() => dispatch(setPreviousJokeId())}>{'<'}</button>
       <button type="button" onClick={() => dispatch(setNextJokeId())}>{'>'}</button>

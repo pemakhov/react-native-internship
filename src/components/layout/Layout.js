@@ -10,7 +10,9 @@ const Layout = ({ children }) => {
         </div>
       </header>
       <main>
-        {children}
+        <div className="centred-container main-container">
+          {children}
+        </div>
       </main>
       <footer>
         <div className="centred-container">

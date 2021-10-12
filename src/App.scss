@@ -1,3 +1,7 @@
+html {
+  font-size: 20px;
+}
+
 body {
   background-color: #eaeaea;
 }
@@ -37,6 +41,10 @@ footer {
 }
 
 .main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   flex-grow: 1;
   background-color: aquamarine;
 }
