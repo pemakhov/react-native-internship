@@ -5,7 +5,7 @@ const JokeView = ({ joke }) => {
   const paragraphs = joke
     .split('\n')
     .filter((line) => line)
-    .map((line) => <p key={line.slice(0, 10)}>{line}</p>);
+    .map((line) => <p key={line}>{line}</p>);
 
   return (
     <div>

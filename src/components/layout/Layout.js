@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
+import Logo from '../logo/Logo';
+import Search from '../search/Search';
+import SearchResults from '../search/SearchResults';
 import './Layout.scss';
 
 const Layout = ({ children }) => {
+  const logoText = '{ jokes }';
+  const searchPlaceholder = 'search a joke...';
+
   return (
     <>
       <header>
-        <div className="centred-container">
-          <div className="logo">
-            {'{ jokes }'}
-          </div>
+        <div className="centred-container header">
+          <Logo text={logoText} />
+          <Search placeholder={searchPlaceholder} />
+          <SearchResults />
         </div>
       </header>
       <main>

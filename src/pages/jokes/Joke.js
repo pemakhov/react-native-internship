@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllJokes } from './jokeSlice';
 import { PENDING } from '../../constants/loadingStates';
-import { jokeTypes } from '../../constants/jokesApiInfo';
 import JokeView from './JokeView';
+import { getJokeText } from '../../libs/jokeLib';
 
 const Joke = () => {
   const dispatch = useDispatch();
@@ -19,11 +19,7 @@ const Joke = () => {
     joke = 'No jokes :(';
   } else {
     const jokeObject = collection[currentJokeId];
-    // There are 'single' and 'twopart' types
-    const { type } = jokeObject;
-    joke = (type === jokeTypes.single)
-      ? jokeObject.joke
-      : `${jokeObject.setup}\n${jokeObject.delivery}`;
+    joke = getJokeText(jokeObject);
   }
 
   useEffect(() => {
