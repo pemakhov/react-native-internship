@@ -1,16 +1,21 @@
 .board {
-  background-color: #eaeaea;
-  margin: 3rem 0 1rem;
-  padding: 3rem;
+  background-color: white;
+  padding: 0 1rem;
   min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: stretch;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
 
-  .joke-switch {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.joke {
+  flex-grow: 2;
+}
+
+@media only screen and (min-width: 530px) {
+  .board {
+    padding: 0 3rem;
+    min-height: 400px;
   }
 }

@@ -1,13 +1,20 @@
 import React from 'react';
 import Joke from './Joke';
-import JokeSwitchBar from './JokeSwitchBar';
+import SwitchBar from '../../components/SwitchBar/SwitchBar';
+import Counter from '../../components/Counter/Counter';
+import { setNextJokeIndex, setPreviousJokeIndex, setJokeIndex } from './jokeSlice';
 import './JokeBoard.scss';
 
 const JokeBoard = () => {
   return (
     <div className="board">
+      <Counter />
       <Joke />
-      <JokeSwitchBar />
+      <SwitchBar
+        setNextJokeIndex={setNextJokeIndex}
+        setPreviousJokeIndex={setPreviousJokeIndex}
+        setJokeIndex={setJokeIndex}
+      />
     </div>
   );
 };

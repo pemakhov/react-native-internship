@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { IDLE, PENDING } from '../../constants/loadingStates';
 import {
-  MAX_JOKE_ID, AMOUNT, getUrl, JOKE_ID_KEY, MAX_SEARCHED_JOKES,
+  MAX_JOKE_INDEX, AMOUNT, getUrl, JOKE_INDEX_KEY, MAX_SEARCHED_JOKES,
 } from '../../constants/jokeConstants';
-import { getJokeText } from '../../libs/jokeLib';
+import { getJokeText, saveJokeIndexToLocalStorage } from '../../libs/jokeLib';
 
 /**
  * A thunk action creator
@@ -16,7 +16,7 @@ export const fetchAllJokes = createAsyncThunk(
     let from = 0;
 
     // There is a restriction on the amount of jokes fetched at once
-    while (from <= MAX_JOKE_ID) {
+    while (from <= MAX_JOKE_INDEX) {
       const to = from + AMOUNT - 1;
       const url = getUrl(from, to, AMOUNT);
       urls.push(url);
@@ -41,47 +41,45 @@ export const fetchAllJokes = createAsyncThunk(
   }
 );
 
-const saveJokeIdToLocalStorage = (id) => localStorage.setItem(JOKE_ID_KEY, id);
-
 // The object containing actions and reducer, returned by createSlice
 export const jokeCollectionSlice = createSlice({
   name: 'jokeCollection',
   initialState: {
-    currentJokeId: localStorage.getItem(JOKE_ID_KEY) || 0,
+    currentJokeIndex: parseInt(localStorage.getItem(JOKE_INDEX_KEY)) || 0,
     loading: IDLE,
     collection: [],
     searchKey: '',
     searchResults: [],
   },
   reducers: {
-    setNextJokeId: (state) => {
-      const newId = state.currentJokeId + 1;
+    setNextJokeIndex: (state) => {
+      const newIndex = state.currentJokeIndex + 1;
 
-      if (newId < state.collection.length) {
-        saveJokeIdToLocalStorage(newId);
-        return { ...state, currentJokeId: newId };
+      if (newIndex < state.collection.length) {
+        saveJokeIndexToLocalStorage(newIndex);
+        return { ...state, currentJokeIndex: newIndex };
       }
 
       return state;
     },
 
-    setPreviousJokeId: (state) => {
-      const newId = state.currentJokeId - 1;
+    setPreviousJokeIndex: (state) => {
+      const newIndex = state.currentJokeIndex - 1;
 
-      if (newId > 0) {
-        saveJokeIdToLocalStorage(newId);
-        return { ...state, currentJokeId: newId };
+      if (newIndex >= 0) {
+        saveJokeIndexToLocalStorage(newIndex);
+        return { ...state, currentJokeIndex: newIndex };
       }
       
       return state;
     },
 
-    setJokeId: (state, action) => {
-      const newId = action.payload;
+    setJokeIndex: (state, action) => {
+      const newIndex = action.payload;
 
-      if (newId >= 0 && newId < state.collection.length && newId !== state.collection.currentJokeId) {
-        saveJokeIdToLocalStorage(newId);
-        return { ...state, currentJokeId: action.payload };
+      if (newIndex >= 0 && newIndex < state.collection.length && newIndex !== state.collection.currentJokeIndex) {
+        saveJokeIndexToLocalStorage(newIndex);
+        return { ...state, currentJokeIndex: action.payload };
       }
       
       return state;
@@ -110,9 +108,9 @@ export const jokeCollectionSlice = createSlice({
 });
 
 export const {
-  setNextJokeId,
-  setPreviousJokeId,
-  setJokeId,
+  setNextJokeIndex,
+  setPreviousJokeIndex,
+  setJokeIndex,
   setSearchKey,
 } = jokeCollectionSlice.actions;
 

@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Logo.scss';
 
 const Logo = ({ text }) => {
   return (
     <div className="logo">
-      {text}
+      <a href="/">
+        {text}
+      </a>
     </div>
   );
 };

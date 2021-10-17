@@ -2,22 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSearchKey } from '../../pages/jokes/jokeSlice';
+import SearchView from './SearchView';
 
 const Search = ({ placeholder }) => {
   const dispatch = useDispatch();
-  const handleInputChange = (event) => {
+
+  const handleChange = (event) => {
     dispatch(setSearchKey(event.target.value));
   };
 
+  const handleBlur = () => dispatch(setSearchKey(''));
+
   return (
-    <div className="search">
-      <input
-        type="text"
-        placeholder={placeholder}
-        onChange={handleInputChange}
-        value={useSelector((state) => state.jokes.searchKey)}
-      />
-    </div>
+    <SearchView
+      handleChange={handleChange}
+      handleBlur={handleBlur}
+      placeholder={placeholder}
+      value={useSelector((state) => state.jokes.searchKey)}
+    />
   );
 };
 

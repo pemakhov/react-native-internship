@@ -1,0 +1,38 @@
+.search-results {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: absolute;
+  top: 8rem;
+  left: calc(50% - 300px / 2);
+  width: 300px;
+  color: #232323;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  button {
+    background-color: white;
+    border: none;
+    border-bottom: #eaeaea solid 1px;
+    padding: 0.5rem;
+    text-align: left;
+
+  }
+
+  button:last-child {
+    border-bottom: none;
+  }
+
+  button:hover {
+    background-color: #de3d5d;
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 530px) {
+  .search-results {
+    top: 4rem;
+    left: calc(50% + 800px / 2 - 300px);
+    width: 300px;
+  }
+}

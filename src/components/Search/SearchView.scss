@@ -1,0 +1,10 @@
+.search {
+  input[type=text] {
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+  }
+  input[type=text]:focus {
+    outline: #565656 solid 2px;
+  }
+}

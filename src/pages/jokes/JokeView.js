@@ -8,7 +8,7 @@ const JokeView = ({ joke }) => {
     .map((line) => <p key={line}>{line}</p>);
 
   return (
-    <div>
+    <div className="joke">
       {paragraphs}
     </div>
   );

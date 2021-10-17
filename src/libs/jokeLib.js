@@ -1,4 +1,4 @@
-import { jokeTypes, EXCERPT_LENGTH } from '../constants/jokeConstants';
+import { jokeTypes, EXCERPT_LENGTH, JOKE_INDEX_KEY } from '../constants/jokeConstants';
 
 /**
  * Extracts the text from the @joke object from different
@@ -48,5 +48,7 @@ export const getExcerpt = (text, key) => {
     ${phrase}
     ${(excerptEndIndex < text.length - 1) ? '...' : ''}`;
 };
+
+export const saveJokeIndexToLocalStorage = (index) => localStorage.setItem(JOKE_INDEX_KEY, index);
 
 export default getJokeText;

@@ -7,8 +7,13 @@ import { getJokeText } from '../../libs/jokeLib';
 
 const Joke = () => {
   const dispatch = useDispatch();
-  const { currentJokeId, collection, loading } = useSelector((state) => state.jokes);
 
+  useEffect(() => {
+    dispatch(fetchAllJokes());
+  }, []);
+
+  const { currentJokeIndex, collection, loading } = useSelector((state) => state.jokes);
+  
   // The text of a joke
   let joke = '';
 
@@ -18,13 +23,9 @@ const Joke = () => {
     // In case when no jokes were fetched
     joke = 'No jokes :(';
   } else {
-    const jokeObject = collection[currentJokeId];
+    const jokeObject = collection[currentJokeIndex];
     joke = getJokeText(jokeObject);
   }
-
-  useEffect(() => {
-    dispatch(fetchAllJokes());
-  }, []);
 
   return <JokeView joke={joke} />;
 };

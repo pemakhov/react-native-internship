@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
-import Logo from '../logo/Logo';
-import Search from '../search/Search';
-import SearchResults from '../search/SearchResults';
+import Logo from '../Logo/Logo';
+import Search from '../Search/Search';
+import SearchResults from '../SearchResults/SearchResults';
 import './Layout.scss';
 
 const Layout = ({ children }) => {
