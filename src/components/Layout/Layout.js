@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
       <footer>
         <div className="centred-container footer">
           <div className="footer__name">
-            ONIX react-native internship 2021-2022
+            ONIX React Native Internship 2021-2022
           </div>
           <div className="footer__copyright">
             by Serhii Pemakhov
