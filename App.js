@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, SafeAreaView, TextInput, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  Image,
+} from 'react-native';
 import Header from './components/Header/Header';
 import { TITLE } from './constants/layout';
+import styles from './AppStyles';
 
 const App = () => {
   const [name, setName] = useState('');
@@ -10,10 +17,18 @@ const App = () => {
     <SafeAreaView>
       <Header
         title={TITLE}
-        style={styles.header}
+        styles={styles.header}
+      />
+      <Image
+        style={styles.image}
+        source={{ uri: 'https://randomuser.me/api/portraits/men/9.jpg' }}
       />
       <View style={styles.content}>
-        <Text>Name: {name}</Text>
+        <Text style={styles.contentText}>
+          Name:
+          {' '}
+          {name}
+        </Text>
         <TextInput
           onChangeText={setName}
           value={name}
@@ -21,30 +36,7 @@ const App = () => {
         />
       </View>
     </SafeAreaView>
-  )
+  );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      backgroundColor: 'maroon',
-    },
-    text: {
-      fontSize: 20,
-      color: 'cornsilk',
-    },
-  },
-  content: {
-    paddingHorizontal: 2,
-    color: 'black',
-  },
-  textInput: {
-    borderWidth: 1,
-    borderColor: 'black',
-    color: 'black',
-  }
-});
 
 export default App;

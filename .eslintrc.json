@@ -6,7 +6,7 @@
         "jest/globals": true
     },
     "parser": "babel-eslint",
-    // "extends": ["airbnb", "plugin:import/typescript"],
+    "extends": ["airbnb", "plugin:import/typescript"],
     "plugins": ["jest"],
     "rules": {
         "react/jsx-filename-extension": 0,
