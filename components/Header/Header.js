@@ -12,7 +12,7 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
   styles: PropTypes.shape({
     container: ViewPropTypes.style,
-    text: ViewPropTypes.style,
+    text: Text.propTypes.style,
   }).isRequired,
 };
 
