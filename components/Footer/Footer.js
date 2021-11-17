@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, ViewPropTypes } from 'react-native';
+import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import styles from './footerStyles';
 
-const Footer = ({ brand, slogan, styles }) => {
+const Footer = ({ brand, slogan }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.brand}>{brand}</Text>
@@ -14,11 +15,6 @@ const Footer = ({ brand, slogan, styles }) => {
 Footer.propTypes = {
   brand: PropTypes.string.isRequired,
   slogan: PropTypes.string.isRequired,
-  styles: PropTypes.shape({
-    container: ViewPropTypes.style,
-    brand: Text.propTypes.style,
-    slogan: Text.propTypes.style,
-  }).isRequired,
 };
 
 export default Footer;

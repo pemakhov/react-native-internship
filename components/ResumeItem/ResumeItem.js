@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text } from 'react-native';
 import PropTypes from 'prop-types';
-import theme from '../../theme';
+import styles from './resumeItemStyles';
 
-const { paragraph, subtitle } = theme;
+const { paragraph, subtitle } = styles;
 
 const ResumeItem = ({ title, value }) => (
   <Text style={paragraph}>

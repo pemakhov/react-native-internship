@@ -15,30 +15,27 @@ import {
   NAME_PLACEHOLDER,
   RESUME_ITEMS,
 } from './constants/texts';
-import theme from './theme';
+import styles from './appStyles';
 
 const App = () => {
   const [name, setName] = useState('');
 
   const {
-    header,
-    main,
-    footer,
-  } = theme;
+    container,
+    profilePicture,
+    textInput,
+  } = styles;
 
   const [nameItem, ...restItems] = RESUME_ITEMS;
 
   return (
     <SafeAreaView style={{ height: '100%' }}>
-      <Header
-        title={TITLE}
-        styles={header}
-      />
+      <Header title={TITLE} />
       <Image
-        style={main.profilePicture}
+        style={profilePicture}
         source={{ uri: 'https://randomuser.me/api/portraits/men/9.jpg' }}
       />
-      <View style={main.container}>
+      <View style={container}>
         <ResumeItem
           title={nameItem[0]}
           value={name}
@@ -46,7 +43,7 @@ const App = () => {
         <TextInput
           onChangeText={setName}
           value={name}
-          style={main.textInput}
+          style={textInput}
           placeholder={NAME_PLACEHOLDER}
         />
         {restItems.map((item) => (
@@ -57,7 +54,7 @@ const App = () => {
           />
         ))}
       </View>
-      <Footer brand={BRAND} slogan={SLOGAN} styles={footer} />
+      <Footer brand={BRAND} slogan={SLOGAN} />
     </SafeAreaView>
   );
 };

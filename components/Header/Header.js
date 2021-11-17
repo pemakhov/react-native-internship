@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, ViewPropTypes } from 'react-native';
+import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import styles from './headerStyles';
 
-const Header = ({ title, styles }) => (
+const Header = ({ title }) => (
   <View style={styles.container}>
     <Text style={styles.text}>{title}</Text>
   </View>
@@ -10,10 +11,6 @@ const Header = ({ title, styles }) => (
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  styles: PropTypes.shape({
-    container: ViewPropTypes.style,
-    text: Text.propTypes.style,
-  }).isRequired,
 };
 
 export default Header;
