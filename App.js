@@ -29,7 +29,7 @@ const App = () => {
   const [nameItem, ...restItems] = RESUME_ITEMS;
 
   return (
-    <SafeAreaView style={{ height: '100%' }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Header title={TITLE} />
       <Image
         style={profilePicture}
