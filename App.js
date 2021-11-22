@@ -6,6 +6,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import Home from './screens/Home/Home';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -15,6 +16,7 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View>
         <Text>Hello world</Text>
+        <Home />
       </View>
     </SafeAreaView>
   );
