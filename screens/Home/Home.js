@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import SpaceObjectSummary from './components/SpaceObjectSummary';
 import { spaceObjects } from '../../assets/spaceObjects';
+import withLayout from '../../layouts/withLayout';
 
 const Home = () => {
   const spaceBodies = Object.entries(spaceObjects).map((entry) => entry[1]);
@@ -15,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withLayout(Home, 'Home');
