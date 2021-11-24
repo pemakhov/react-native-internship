@@ -5,7 +5,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
     paddingVertical: 15,
-    backgroundColor: '#5E503F',
+    backgroundColor: 'black',
   },
   text: {
     fontSize: 20,

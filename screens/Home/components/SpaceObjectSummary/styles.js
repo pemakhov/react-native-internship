@@ -1,12 +1,21 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    borderWidth: 1,
+  touchable: {
     borderRadius: 10,
     marginVertical: 5,
+    marginHorizontal: 10,
     padding: 15,
-    backgroundColor: '#22333B',
+    backgroundColor: '#0A0908',
+  },
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  image: {
+    width: 80,
+    aspectRatio: 1,
+    marginRight: 20,
   },
   title: {
     fontWeight: 'bold',

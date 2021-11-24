@@ -1,19 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
-import SpaceObjectSummary from './components/SpaceObjectSummary';
+import { ScrollView } from 'react-native';
+import SpaceObjectSummary from './components/SpaceObjectSummary/SpaceObjectSummary';
 import { spaceObjects } from '../../assets/spaceObjects';
 import withLayout from '../../layouts/withLayout';
 
 const Home = () => {
   const spaceBodies = Object.entries(spaceObjects).map((entry) => entry[1]);
   return (
-    <View>
+    <ScrollView>
       {spaceBodies.map((spaceObject) => {
-        const { name, type, id } = spaceObject;
-        return <SpaceObjectSummary name={name} type={type} key={id} />;
+        const { id, name, type, image } = spaceObject;
+        return (
+          <SpaceObjectSummary
+            name={name}
+            type={type}
+            image={image.small}
+            key={id}
+          />
+        );
       })}
-    </View>
+    </ScrollView>
   );
 };
 
-export default withLayout(Home, 'Home');
+export default withLayout(Home, 'Solar System Travel Guide');
