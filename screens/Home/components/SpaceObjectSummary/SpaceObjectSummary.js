@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-const SpaceObjectSummary = ({ name, type, image }) => {
-  const handlePress = () => console.log('pressed');
+const SpaceObjectSummary = ({ name, type, image, handlePress }) => {
   return (
-    <TouchableHighlight onPress={handlePress} style={styles.touchable}>
+    <TouchableOpacity
+      onPress={handlePress}
+      style={styles.touchable}
+      activeOpacity={0.8}>
       <View style={styles.container}>
         <Image source={image} style={styles.image} />
         <View>
@@ -14,7 +16,7 @@ const SpaceObjectSummary = ({ name, type, image }) => {
           <Text style={styles.text}>Type: {type}</Text>
         </View>
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 
@@ -22,6 +24,7 @@ SpaceObjectSummary.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   image: PropTypes.node.isRequired,
+  handlePress: PropTypes.func,
 };
 
 export default SpaceObjectSummary;

@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar, useColorScheme, View } from 'react-native';
 import TitleBar from '../components/TitleBar/TitleBar';
 import styles from './styles';
 
-const withLayout = (Component, title) => () => {
+const withLayout = (Component, title) => (props) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
@@ -11,7 +11,7 @@ const withLayout = (Component, title) => () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View style={styles.container}>
         <TitleBar title={title} />
-        <Component />
+        <Component {...props} />
       </View>
     </SafeAreaView>
   );

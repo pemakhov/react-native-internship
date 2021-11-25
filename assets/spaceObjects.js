@@ -1,5 +1,5 @@
-export const spaceObjects = {
-  sun: {
+export const spaceObjects = [
+  {
     id: 0,
     type: 'star',
     name: 'Sun',
@@ -9,14 +9,20 @@ export const spaceObjects = {
       It produces a lot of energy from the hydrogen it consists of, 
       using the process named nuclear fusion. The surface and atmosphere 
       of the Sun is very hot, therefore your visit to this space body 
-      can be a problem.`,
+      can be a problem.
+      The Sun is the star in the center of the Solar System. 
+      It produces a lot of energy from the hydrogen it consists of, 
+      using the process named nuclear fusion. The surface and atmosphere 
+      of the Sun is very hot, therefore your visit to this space body 
+      can be a problem.
+      `,
     image: {
       small: require('./images/sun_small.jpg'),
       medium: require('./images/sun_medium.jpg'),
       large: require('./images/sun_large.jpg'),
     },
   },
-  mercury: {
+  {
     id: 1,
     type: 'planet',
     name: 'Mercury',
@@ -31,7 +37,7 @@ export const spaceObjects = {
       large: require('./images/mercury_large.jpg'),
     },
   },
-  venus: {
+  {
     id: 2,
     type: 'planet',
     name: 'Venus',
@@ -47,7 +53,7 @@ export const spaceObjects = {
       large: require('./images/venus_large.jpg'),
     },
   },
-  earth: {
+  {
     id: 3,
     type: 'planet',
     name: 'Earth',
@@ -64,4 +70,33 @@ export const spaceObjects = {
       large: require('./images/earth_large.jpg'),
     },
   },
-};
+  {
+    id: 4,
+    type: 'planet',
+    name: 'Mars',
+    climate: 'cold, dust storms',
+    population: 0,
+    description: `The planet is not very big, but here you can find the highest mountain in 
+    the whole Solar System - the Olympus Mons. Also, you can meet here a dozen of vehicles sent 
+    by earthlings.`,
+    image: {
+      small: require('./images/mars_small.jpg'),
+      medium: require('./images/mars_medium.jpg'),
+      large: require('./images/mars_large.jpg'),
+    },
+  },
+  {
+    id: 5,
+    type: 'planet',
+    name: 'Jupiter',
+    climate: 'stormy',
+    population: 0,
+    description: `The planet is the biggest in the whole Solar System. It is best known for 
+    its big spot: the storm existing many hundreds of years.`,
+    image: {
+      small: require('./images/jupiter_small.jpg'),
+      medium: require('./images/jupiter_medium.jpg'),
+      large: require('./images/jupiter_large.jpg'),
+    },
+  },
+];
