@@ -16,6 +16,7 @@ export default StyleSheet.create({
     width: 80,
     aspectRatio: 1,
     marginRight: 20,
+    borderRadius: 10,
   },
   title: {
     fontWeight: 'bold',

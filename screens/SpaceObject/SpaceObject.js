@@ -1,33 +1,40 @@
 import React from 'react';
-import { ScrollView, Text, Image } from 'react-native';
+import { ScrollView, View, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { spaceObjects } from '../../assets/spaceObjects';
 import withLayout from '../../layouts/withLayout';
+import Title from '../../components/Title/Title';
+import InfoRow from './components/InfoRow/InfoRow';
+import Divider from './components/Divider/Divider';
 import styles from './styles';
 
+/**
+ * Deletes the 'id', 'description' and 'image properties and returns a new object
+ * @param {object} data source object
+ * @returns new object with deleted properties
+ */
+const getInfo = (data) => {
+  const { id, description, image, ...info } = data;
+  return info;
+};
+
 const SpaceObject = ({ route }) => {
-  const { id } = route.params;
+  const { id, title } = route.params;
   const data = spaceObjects.find((current) => current.id === id);
-  const { type, name, climate, population, description } = data;
+  const info = getInfo(data);
+  const { description } = data;
   const image = data.image.medium;
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.scrollView}>
       <Image source={image} style={styles.image} />
-      <Text>
-        Type: <Text>{type}</Text>
-      </Text>
-      <Text>
-        Name: <Text>{name}</Text>
-      </Text>
-      <Text>
-        Climate: <Text>{climate}</Text>
-      </Text>
-      <Text>
-        Population: <Text>{population}</Text>
-      </Text>
-      <Text>
-        Description: <Text>{description}</Text>
-      </Text>
+      <View style={styles.container}>
+        <Title text={title} />
+        {Object.entries(info).map((item) => (
+          <InfoRow infoKey={item[0]} value={item[1]} key={item[0]} />
+        ))}
+        <Divider />
+        <Text style={styles.description}>{description}</Text>
+      </View>
     </ScrollView>
   );
 };
