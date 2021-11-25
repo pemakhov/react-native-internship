@@ -5,7 +5,8 @@ import { spaceObjects } from '../../assets/spaceObjects';
 import withLayout from '../../layouts/withLayout';
 import styles from './styles';
 
-const SpaceObject = ({ id }) => {
+const SpaceObject = ({ route }) => {
+  const { id } = route.params;
   const data = spaceObjects.find((current) => current.id === id);
   const { type, name, climate, population, description } = data;
   const image = data.image.medium;
@@ -32,7 +33,7 @@ const SpaceObject = ({ id }) => {
 };
 
 SpaceObject.propTypes = {
-  id: PropTypes.number,
+  route: PropTypes.object,
 };
 
 export default withLayout(SpaceObject, 'Destination');
