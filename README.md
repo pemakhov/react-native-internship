@@ -1,3 +1,7 @@
-# Lesson 3
+# Lesson 4
 
-## Navigation
+## Navigation. Tabs.
+
+- [ ] add tabs
+- [ ] add a drawer
+- [x] replace SafeAreaView

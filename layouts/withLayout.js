@@ -1,5 +1,6 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar, useColorScheme } from 'react-native';
 import styles from './styles';
 
 const withLayout = (Component, title) => (props) => {
