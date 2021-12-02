@@ -7,6 +7,7 @@ export default StyleSheet.create({
   },
   text: {
     color: 'black',
+    marginBottom: 20,
   },
   icon: {
     marginVertical: 50,
