@@ -5,4 +5,9 @@ export const texts = {
   spaceObjectSummary: {
     type: 'Type',
   },
+  about: {
+    title: 'The Solar System Travel Guide',
+    content: 'For those, who want to visit the Solar System',
+    buttonText: 'Go Back',
+  },
 };

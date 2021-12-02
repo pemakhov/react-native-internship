@@ -47,8 +47,8 @@ function TabScreen() {
 const App = () => (
   <SafeAreaProvider>
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={TabScreen} />
+      <Drawer.Navigator initialRouteName="Main">
+        <Drawer.Screen name="Main" component={TabScreen} />
         <Drawer.Screen name="About" component={About} />
       </Drawer.Navigator>
     </NavigationContainer>
