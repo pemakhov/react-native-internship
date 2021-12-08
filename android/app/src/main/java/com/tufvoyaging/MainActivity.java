@@ -2,6 +2,7 @@ package com.tufvoyaging;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
+import com.zoontek.rnbootsplash.RNBootSplash; // for bootSplash
 
 public class MainActivity extends ReactActivity {
 
@@ -16,6 +17,7 @@ public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
+    super.onCreate(savedInstanceState);
+    RNBootSplash.show(R.drawable.bootsplash, MainActivity.this);
   }
 }
