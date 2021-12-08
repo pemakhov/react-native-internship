@@ -1,6 +1,7 @@
 package com.tufvoyaging;
 
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactActivityDelegate; // <- add this necessary import
 import android.os.Bundle;
 import com.zoontek.rnbootsplash.RNBootSplash; // for bootSplash
 
@@ -18,6 +19,6 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    RNBootSplash.show(R.drawable.bootsplash, MainActivity.this);
+    RNBootSplash.init(MainActivity.this); // <- initialize the splash screen
   }
 }
