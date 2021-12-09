@@ -18,7 +18,7 @@ public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
+    super.onCreate(savedInstanceState);
   }
 
   @Override
@@ -27,7 +27,7 @@ public class MainActivity extends ReactActivity {
 
       @Override
       protected void loadApp(String appKey) {
-        RNBootSplash.init(MainActivity.this); // <- initialize the splash screen
+        RNBootSplash.init(MainActivity.this);
         super.loadApp(appKey);
       }
     };
