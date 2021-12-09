@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { ScrollView } from 'react-native';
 import SpaceObjectSummary from './components/SpaceObjectSummary/SpaceObjectSummary';
 import { spaceObjects } from '../../assets/spaceObjects';
@@ -12,14 +12,16 @@ const Home = ({ navigation }) => (
     <Title text={texts.home.title} />
     {spaceObjects.map((spaceObject) => {
       const { id, name, type, image } = spaceObject;
+      const memoizedHandlePress = useCallback(
+        () => navigation.navigate('Destination', { id, title: name }),
+        [id, name]
+      );
       return (
         <SpaceObjectSummary
           name={name}
           type={type}
           image={image.small}
-          handlePress={() =>
-            navigation.navigate('Destination', { id, title: name })
-          }
+          handlePress={memoizedHandlePress}
           key={id}
         />
       );

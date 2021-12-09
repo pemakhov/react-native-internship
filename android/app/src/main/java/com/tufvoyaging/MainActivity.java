@@ -18,7 +18,18 @@ public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    RNBootSplash.init(MainActivity.this); // <- initialize the splash screen
+    super.onCreate(null);
+  }
+
+  @Override
+  protected ReactActivityDelegate createReactActivityDelegate() {
+    return new ReactActivityDelegate(this, getMainComponentName()) {
+
+      @Override
+      protected void loadApp(String appKey) {
+        RNBootSplash.init(MainActivity.this); // <- initialize the splash screen
+        super.loadApp(appKey);
+      }
+    };
   }
 }
