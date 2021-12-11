@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import { texts } from '../../../../constants/texts';
 
-const SpaceObjectSummary = ({ name, type, image, handlePress }) => {
+const SpaceObjectSummary = ({ data, handlePress }) => {
+  const { id, name, type, image } = data;
+  const memoizedHandlePress = useCallback(handlePress, [id, name, handlePress]);
   return (
     <TouchableOpacity
-      onPress={handlePress}
+      onPress={memoizedHandlePress}
       style={styles.touchable}
       activeOpacity={0.9}>
       <View style={styles.container}>
@@ -24,9 +26,12 @@ const SpaceObjectSummary = ({ name, type, image, handlePress }) => {
 };
 
 SpaceObjectSummary.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  image: PropTypes.node.isRequired,
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    image: PropTypes.node.isRequired,
+  }),
   handlePress: PropTypes.func,
 };
 
