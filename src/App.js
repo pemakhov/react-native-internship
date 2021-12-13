@@ -4,13 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import RNBootSplash from 'react-native-bootsplash';
-import DrawerNavigator from './navigator/DrawerNavigator';
+import TabNavigator from './navigator/TabNavigator';
 
 const App = () => (
   <Provider store={store}>
     <SafeAreaProvider>
       <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true })}>
-        <DrawerNavigator />
+        <TabNavigator />
       </NavigationContainer>
     </SafeAreaProvider>
   </Provider>

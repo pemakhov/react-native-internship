@@ -5,7 +5,11 @@ export default StyleSheet.create({
     marginHorizontal: 5,
   },
   textInput: {
+    flex: 1,
     borderWidth: 1,
     borderColor: 'black',
+  },
+  textInputContainer: {
+    flexDirection: 'row',
   },
 });
