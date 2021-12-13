@@ -1,7 +1,7 @@
 import { ADD_TRAVELER, DELETE_TRAVELER, SWITCH_TRAVELER } from './types';
 
 const initialState = {
-  currentTraveler: { id: '0', name: 'test' },
+  currentTraveler: null,
   travelers: [],
 };
 
