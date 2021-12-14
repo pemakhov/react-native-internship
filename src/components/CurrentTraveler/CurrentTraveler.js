@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-function CurrentTraveler({ currentTraveler }) {
+function CurrentTraveler({ traveler }) {
   const text =
-    currentTraveler === null
+    traveler === null
       ? "We don't know your name :(\nBut you can sign in"
-      : `Welcome, ${currentTraveler.name}`;
+      : `Welcome, ${traveler}`;
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{text}</Text>
@@ -17,18 +17,10 @@ function CurrentTraveler({ currentTraveler }) {
 }
 
 function mapState(state) {
-  return { currentTraveler: state.currentTraveler };
+  return { traveler: state.traveler };
 }
 
-CurrentTraveler.propTypes = {
-  currentTraveler: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-  }),
-};
-
-CurrentTraveler.defaultProps = {
-  currentTraveler: null,
-};
+CurrentTraveler.propTypes = { traveler: PropTypes.string };
+CurrentTraveler.defaultProps = { traveler: null };
 
 export default connect(mapState)(CurrentTraveler);

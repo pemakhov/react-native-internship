@@ -9,4 +9,10 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
   },
+  error: {
+    color: '#FF5A5F',
+  },
+  signOutButton: {
+    marginTop: 10,
+  }
 });

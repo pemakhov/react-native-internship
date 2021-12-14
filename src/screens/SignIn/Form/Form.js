@@ -1,30 +1,58 @@
-/* eslint-disable no-alert */
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { View, Text, TextInput, Button } from 'react-native';
 import { useFormik } from 'formik';
 import ValidationSchema from './ValidationSchema';
 import styles from './styles';
+import { updateTraveler, deleteTraveler } from '../../../store/travelers/actions';
+import SignOutButton from './SignOutButton';
 
 function Form() {
-  const { handleChange, handleSubmit, handleBlur, values, errors, touched } =
-    useFormik({
-      validationSchema: ValidationSchema,
-      initialValues: { name: '' },
-      onSubmit: ({ name }) => alert(`Name: ${name}`),
-    });
+  const initialValues = { name: '' };
+  const dispatch = useDispatch();
+  const traveler = useSelector((state) => state.traveler);
+
+  const {
+    handleChange,
+    handleSubmit,
+    handleBlur,
+    values,
+    errors,
+    touched,
+    resetForm,
+  } = useFormik({
+    validationSchema: ValidationSchema,
+    initialValues,
+    onSubmit: ({ name }) => {
+      dispatch(updateTraveler(name));
+      resetForm({ values: initialValues });
+    },
+  });
+
+  const validationColor = !touched
+    ? '#223e4b'
+    : errors.name
+      ? '#FF5A5F'
+      : '#223e4b';
+
   return (
-    <View style={styles.container}>
-      <View style={styles.textInput}>
-        <TextInput
-          onChangeText={handleChange('name')}
-          onBlur={handleBlur('name')}
-          value={values.name}
-          error={errors.name}
-          touched={touched.name}
-          placeholder="Name"
-        />
+    <View>
+      <View style={styles.container}>
+        <View style={{ ...styles.textInput, borderColor: validationColor }}>
+          <TextInput
+            onChangeText={handleChange('name')}
+            onBlur={handleBlur('name')}
+            value={values.name}
+            error={errors.name}
+            touched={touched.name}
+            placeholder="Name"
+          />
+        </View>
+        <Button onPress={handleSubmit} title="Sign In"  />
       </View>
-      <Button onPress={handleSubmit} title="Add" />
+      {errors.name && <Text style={styles.error}>{errors.name}</Text>}
+      { traveler && <SignOutButton handleSignOut={() => dispatch(deleteTraveler)} />}
     </View>
   );
 }
