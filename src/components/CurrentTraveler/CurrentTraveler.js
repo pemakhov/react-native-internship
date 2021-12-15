@@ -17,7 +17,7 @@ function CurrentTraveler({ traveler }) {
 }
 
 function mapState(state) {
-  return { traveler: state.traveler };
+  return { traveler: state.travelers.traveler };
 }
 
 CurrentTraveler.propTypes = { traveler: PropTypes.string };

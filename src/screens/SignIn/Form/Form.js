@@ -11,7 +11,7 @@ import SignOutButton from './SignOutButton';
 function Form() {
   const initialValues = { name: '' };
   const dispatch = useDispatch();
-  const traveler = useSelector((state) => state.traveler);
+  const traveler = useSelector((state) => state.travelers.traveler);
 
   const {
     handleChange,
@@ -52,7 +52,7 @@ function Form() {
         <Button onPress={handleSubmit} title="Sign In"  />
       </View>
       {errors.name && <Text style={styles.error}>{errors.name}</Text>}
-      { traveler && <SignOutButton handleSignOut={() => dispatch(deleteTraveler)} />}
+      { traveler && <SignOutButton handleSignOut={() => dispatch(deleteTraveler())} />}
     </View>
   );
 }

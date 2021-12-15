@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
-import travelersReducer from './travelers/reducers';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
 
-export default createStore(travelersReducer);
+export default createStore(rootReducer, applyMiddleware(thunk));

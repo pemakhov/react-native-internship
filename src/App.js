@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import { Provider } from 'react-redux';
-import store from './store/store';
+import { useDispatch } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 import TabNavigator from './navigator/TabNavigator';
+import { retrieveTraveler } from './store/travelers/actions';
 
-const App = () => (
-  <Provider store={store}>
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(retrieveTraveler), [dispatch]);
+
+  return (
     <SafeAreaProvider>
       <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true })}>
         <TabNavigator />
       </NavigationContainer>
     </SafeAreaProvider>
-  </Provider>
-);
+  );
+};
 
 export default App;
