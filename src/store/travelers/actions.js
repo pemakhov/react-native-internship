@@ -1,6 +1,6 @@
-import { AsyncStorage } from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { DELETE_TRAVELER, SAVE_TRAVELER_TO_STORE } from './types';
-import TRAVELER from '../../constants/asyncStorageData';
+import { TRAVELER } from '../../constants/asyncStorageData';
 
 export const saveTravelerToStore = (name) => ({
   type: SAVE_TRAVELER_TO_STORE,
@@ -10,12 +10,11 @@ export const saveTravelerToStore = (name) => ({
 export const deleteTravelerFromStore = () => ({ type: DELETE_TRAVELER });
 
 const saveTravelerToAsyncStorage = async (traveler) => {
-  await AsyncStorage.setItem(TRAVELER, traveler, (error) => {
-    if (error) {
-      throw error;
-    }
-    return true;
-  });
+  try {
+    await AsyncStorage.setItem(TRAVELER, traveler);
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 export const retrieveTraveler = () => {
@@ -30,28 +29,21 @@ export const retrieveTraveler = () => {
   };
 };
 
-export const updateTraveler = (traveler) => {
-  async (dispatch) => {
-    try {
-      const success = await saveTravelerToAsyncStorage(traveler);
-      if (success) {
-        return dispatch(saveTravelerToStore(traveler));
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+export const updateTraveler = (traveler) => async (dispatch) => {
+  console.log({ traveler });
+  try {
+    await saveTravelerToAsyncStorage(traveler);
+    return dispatch(saveTravelerToStore(traveler));
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-export const deleteTraveler = () => {
-  async (dispatch) => {
-    try {
-      const success = await saveTravelerToAsyncStorage(null);
-      if (success) {
-        return dispatch(deleteTravelerFromStore());
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+export const deleteTraveler = () => async (dispatch) => {
+  try {
+    await saveTravelerToAsyncStorage('');
+    return dispatch(deleteTravelerFromStore());
+  } catch (error) {
+    console.error(error);
+  }
 };
