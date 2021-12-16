@@ -8,7 +8,9 @@ import { retrieveTraveler } from './store/travelers/actions';
 
 const App = () => {
   const dispatch = useDispatch();
-  useEffect(() => dispatch(retrieveTraveler), [dispatch]);
+  useEffect(() => {
+    dispatch(retrieveTraveler());
+  }, [dispatch]);
 
   return (
     <SafeAreaProvider>

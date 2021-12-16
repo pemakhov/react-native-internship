@@ -10,27 +10,19 @@ export const saveTravelerToStore = (name) => ({
 export const deleteTravelerFromStore = () => ({ type: DELETE_TRAVELER });
 
 const saveTravelerToAsyncStorage = async (traveler) => {
+  await AsyncStorage.setItem(TRAVELER, traveler);
+};
+
+export const retrieveTraveler = () => async (dispatch) => {
   try {
-    await AsyncStorage.setItem(TRAVELER, traveler);
+    const value = await AsyncStorage.getItem(TRAVELER);
+    return dispatch(saveTravelerToStore(value));
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
   }
 };
 
-export const retrieveTraveler = () => {
-  async (dispatch) => {
-    try {
-      const value = await AsyncStorage.getItem(TRAVELER);
-      dispatch(saveTravelerToStore(value));
-      return true;
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-};
-
 export const updateTraveler = (traveler) => async (dispatch) => {
-  console.log({ traveler });
   try {
     await saveTravelerToAsyncStorage(traveler);
     return dispatch(saveTravelerToStore(traveler));
