@@ -1,7 +1,16 @@
-# Lesson 4
+# Lesson 5
 
-## Navigation. Tabs.
+## App icon and splash screen
 
-- [ ] add tabs
-- [ ] add a drawer
-- [x] replace SafeAreaView
+- [x] replace name
+- [x] replace the icon
+- [x] add a splash screen
+
+
+# Lesson 6
+
+## Redux
+
+- [x] add redux as the data storage
+- [x] store data to AsyncStorage
+- [x] restore data from AsyncStorage
