@@ -3,7 +3,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
-import TabNavigator from './navigator/TabNavigator';
+import DrawerNavigator from './navigator/DrawerNavigator';
 import Loading from './screens/Loading/Loading';
 import { retrieveTraveler } from './store/travelers/actions';
 import { fetchSpaceObjects } from './store/spaceObjects/actions';
@@ -20,7 +20,7 @@ const App = () => {
     <SafeAreaProvider>
       {loaded ? (
         <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true })}>
-          <TabNavigator />
+          <DrawerNavigator />
         </NavigationContainer>
       ) : (
         <Loading />
