@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from './styles';
-import { texts } from '../../../../constants/texts';
+import styles from '../styles';
+import { texts } from '../../../constants/texts';
 
 const SpaceObjectSummary = ({ data, handlePress }) => {
   const { id, name, type, image } = data;

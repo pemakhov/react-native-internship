@@ -20,4 +20,15 @@ export default StyleSheet.create({
     fontSize: 16,
     color: 'black',
   },
+  divider: {
+    marginVertical: 15,
+    marginHorizontal: 50,
+    borderBottomWidth: 1,
+  },
+  infoRowContainer: {
+    marginVertical: 2,
+  },
+  infoRowText: {
+    color: 'black',
+  },
 });

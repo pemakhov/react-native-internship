@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import withLayout from '../../layouts/withLayout';
 import Title from '../../components/Title/Title';
-import Form from './Form/Form';
+import Form from './components/Form';
 import styles from './styles';
 
 function LogIn() {

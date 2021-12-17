@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import Bold from '../../../../components/Bold/Bold';
-import styles from './styles';
+import Bold from '../../../components/Bold/Bold';
+import styles from '../styles';
 
 const InfoRow = ({ infoKey, value }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>
+    <View style={styles.infoRowContainer}>
+      <Text style={styles.infoRowText}>
         <Bold>{infoKey}: </Bold>
         {value}
       </Text>

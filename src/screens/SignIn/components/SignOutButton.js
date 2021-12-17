@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, View } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from './styles';
+import styles from '../styles';
 
 function SignOutButton({ handleSignOut }) {
   return (

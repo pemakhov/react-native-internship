@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import SpaceObjectSummary from './components/SpaceObjectSummary/SpaceObjectSummary';
+import SpaceObjectSummary from './components/SpaceObjectSummary';
 import { spaceObjects } from '../../assets/spaceObjects';
 import PropTypes from 'prop-types';
 import Title from '../../components/Title/Title';

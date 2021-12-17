@@ -12,4 +12,13 @@ export default StyleSheet.create({
   textInputContainer: {
     flexDirection: 'row',
   },
+  formContainer: {
+    flexDirection: 'row',
+  },
+  error: {
+    color: '#FF5A5F',
+  },
+  signOutButton: {
+    marginTop: 10,
+  },
 });

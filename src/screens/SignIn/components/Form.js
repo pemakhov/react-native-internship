@@ -1,11 +1,13 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, TextInput, Button } from 'react-native';
 import { useFormik } from 'formik';
 import ValidationSchema from './ValidationSchema';
-import styles from './styles';
-import { updateTraveler, deleteTraveler } from '../../../store/travelers/actions';
+import styles from '../styles';
+import {
+  updateTraveler,
+  deleteTraveler,
+} from '../../../store/travelers/actions';
 import SignOutButton from './SignOutButton';
 
 function Form() {
@@ -33,12 +35,12 @@ function Form() {
   const validationColor = !touched
     ? '#223e4b'
     : errors.name
-      ? '#FF5A5F'
-      : '#223e4b';
+    ? '#FF5A5F'
+    : '#223e4b';
 
   return (
     <View>
-      <View style={styles.container}>
+      <View style={styles.formContainer}>
         <View style={{ ...styles.textInput, borderColor: validationColor }}>
           <TextInput
             onChangeText={handleChange('name')}
@@ -49,10 +51,12 @@ function Form() {
             placeholder="Name"
           />
         </View>
-        <Button onPress={handleSubmit} title="Sign In"  />
+        <Button onPress={handleSubmit} title="Sign In" />
       </View>
       {errors.name && <Text style={styles.error}>{errors.name}</Text>}
-      { traveler && <SignOutButton handleSignOut={() => dispatch(deleteTraveler())} />}
+      {traveler && (
+        <SignOutButton handleSignOut={() => dispatch(deleteTraveler())} />
+      )}
     </View>
   );
 }

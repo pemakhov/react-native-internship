@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { spaceObjects } from '../../assets/spaceObjects';
 import withLayout from '../../layouts/withLayout';
 import Title from '../../components/Title/Title';
-import InfoRow from './components/InfoRow/InfoRow';
-import Divider from './components/Divider/Divider';
+import InfoRow from './components/InfoRow';
+import Divider from './components/Divider';
 import styles from './styles';
 
 /**
