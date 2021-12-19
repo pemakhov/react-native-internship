@@ -1,7 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { ScrollView, View, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { spaceObjects } from '../../assets/spaceObjects';
 import withLayout from '../../layouts/withLayout';
 import Title from '../../components/Title/Title';
 import InfoRow from './components/InfoRow';
@@ -19,6 +19,7 @@ const getInfo = (data) => {
 };
 
 const SpaceObject = ({ route }) => {
+  const spaceObjects = useSelector((state) => state.spaceObjects.data);
   const { id, title } = route.params;
   const data = spaceObjects.find((current) => current.id === id);
   const info = getInfo(data);

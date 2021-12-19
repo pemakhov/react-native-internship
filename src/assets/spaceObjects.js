@@ -2,6 +2,7 @@ export const spaceObjects = [
   {
     id: 0,
     type: 'star',
+    categoryTitle: 'Stars',
     name: 'Sun',
     climate: 'hot',
     population: 0,
@@ -15,6 +16,7 @@ export const spaceObjects = [
   {
     id: 1,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Mercury',
     climate: 'very cold at night and very hot at day',
     population: 0,
@@ -28,6 +30,7 @@ export const spaceObjects = [
   {
     id: 2,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Venus',
     climate: 'hot, wet, and windy',
     population: 0,
@@ -41,6 +44,7 @@ export const spaceObjects = [
   {
     id: 3,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Earth',
     climate: 'ideal',
     population: 7790491722,
@@ -54,6 +58,7 @@ export const spaceObjects = [
   {
     id: 4,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Mars',
     climate: 'cold, dust storms',
     population: 0,
@@ -67,6 +72,7 @@ export const spaceObjects = [
   {
     id: 5,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Jupiter',
     climate: 'stormy',
     population: 0,
@@ -80,6 +86,7 @@ export const spaceObjects = [
   {
     id: 6,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Saturn',
     climate: 'windy',
     population: 0,
@@ -93,6 +100,7 @@ export const spaceObjects = [
   {
     id: 7,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Uranus',
     climate: 'cold, dull, windy',
     population: 0,
@@ -106,6 +114,7 @@ export const spaceObjects = [
   {
     id: 8,
     type: 'planet',
+    categoryTitle: 'Planets',
     name: 'Neptune',
     climate: 'cold, dull, windy',
     population: 0,
@@ -119,6 +128,7 @@ export const spaceObjects = [
   {
     id: 9,
     type: 'dwarf planet',
+    categoryTitle: 'Dwarf Planets',
     name: 'Pluto',
     climate: 'cold, dry, clear',
     population: 0,
@@ -127,6 +137,132 @@ export const spaceObjects = [
     image: {
       small: require('./images/pluto_small.jpg'),
       medium: require('./images/pluto_medium.jpg'),
+    },
+  },
+  {
+    id: 10,
+    type: 'dwarf planet',
+    categoryTitle: 'Dwarf Planets',
+    name: 'Ceres',
+    climate: 'it is too small to have its own climate',
+    population: 0,
+    description:
+      'This is just a rock in the space. But as it is the largest object in the asteroid belt between Mars and Jupiter, the serious traveler should visit it.',
+    image: {
+      small: require('./images/ceres_small.jpg'),
+      medium: require('./images/ceres_medium.jpg'),
+    },
+  },
+  {
+    id: 11,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Moon',
+    climate: 'half sunny, half dark and cold',
+    population: 0,
+    description:
+      'This is the only space object visited by the primitive Earth civilization (humanity). Here you can find tracks of real human beings, remains of the robotic vehicles and even working robots.',
+    image: {
+      small: require('./images/moon_small.jpg'),
+      medium: require('./images/moon_medium.jpg'),
+    },
+  },
+  {
+    id: 12,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Ganymede',
+    climate: 'cold',
+    population: 0,
+    description:
+      "Ganymede is the biggest satellite of the Jupiter. This is the biggest satellite orbiting the Sun's planet. It is even bigger than the Mercury, although lighter by the mass.",
+    image: {
+      small: require('./images/ganymede_small.jpg'),
+      medium: require('./images/ganymede_medium.jpg'),
+    },
+  },
+  {
+    id: 13,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Callisto',
+    climate: 'cold, no rain, no snow, nothing',
+    population: 0,
+    description:
+      'Callisto is one of the large satellites of Jupiter. It has the oldest surface in the whole Solar System. Travelers visit Callisto for its diverse and spectacular crater.',
+    image: {
+      small: require('./images/callisto_small.jpg'),
+      medium: require('./images/callisto_medium.jpg'),
+    },
+  },
+  {
+    id: 14,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Europa',
+    climate: 'icy',
+    population: 0,
+    description:
+      "Europa is one of the largest Jupiter's satellites. It is completely covered by the frozen ocean. The ice surface has many cracks and looks very cool. There is nothing similar in the whole Solar System.",
+    image: {
+      small: require('./images/europa_small.jpg'),
+      medium: require('./images/europa_medium.jpg'),
+    },
+  },
+  {
+    id: 15,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Io',
+    climate: 'it is burning!',
+    population: 0,
+    description:
+      "Io is one of the largest Jupiter's satellites. It is known for the greatest volcanic activity in the whole Solar System.",
+    image: {
+      small: require('./images/io_small.jpg'),
+      medium: require('./images/io_medium.jpg'),
+    },
+  },
+  {
+    id: 16,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Phobos',
+    climate: 'too small to have its own climate',
+    population: 0,
+    description:
+      "Io is one of two Mars's satellites. The biggest one. It is so small that it is not even round. Nothing to see here except for the craters.",
+    image: {
+      small: require('./images/phobos_small.jpg'),
+      medium: require('./images/phobos_medium.jpg'),
+    },
+  },
+  {
+    id: 17,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Deimos',
+    climate: 'too small to have its own climate',
+    population: 0,
+    description:
+      "Io is one of two Mars's satellites. The smaller one. As Phobos, it is not round as it's own gravity is too small. Nothing to see here.",
+    image: {
+      small: require('./images/deimos_small.jpg'),
+      medium: require('./images/deimos_medium.jpg'),
+    },
+  },
+  {
+    id: 18,
+    type: 'satellite',
+    categoryTitle: 'Satellites',
+    name: 'Titan',
+    climate: 'cold, very cold',
+    population: 0,
+    description:
+      "Io is the biggest Saturn's satellites. The only satellite in the Solar system to have a dense atmosphere and liquid on its surface as well. The second biggest satellite in the solar system.",
+    image: {
+      small: require('./images/titan_small.jpg'),
+      medium: require('./images/titan_medium.jpg'),
     },
   },
 ];
