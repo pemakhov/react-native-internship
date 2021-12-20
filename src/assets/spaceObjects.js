@@ -2,7 +2,7 @@ export const spaceObjects = [
   {
     id: 0,
     type: 'star',
-    categoryTitle: 'Stars',
+    sectionTitle: 'Stars',
     name: 'Sun',
     climate: 'hot',
     population: 0,
@@ -16,7 +16,7 @@ export const spaceObjects = [
   {
     id: 1,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Mercury',
     climate: 'very cold at night and very hot at day',
     population: 0,
@@ -30,7 +30,7 @@ export const spaceObjects = [
   {
     id: 2,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Venus',
     climate: 'hot, wet, and windy',
     population: 0,
@@ -44,7 +44,7 @@ export const spaceObjects = [
   {
     id: 3,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Earth',
     climate: 'ideal',
     population: 7790491722,
@@ -58,7 +58,7 @@ export const spaceObjects = [
   {
     id: 4,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Mars',
     climate: 'cold, dust storms',
     population: 0,
@@ -72,7 +72,7 @@ export const spaceObjects = [
   {
     id: 5,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Jupiter',
     climate: 'stormy',
     population: 0,
@@ -86,7 +86,7 @@ export const spaceObjects = [
   {
     id: 6,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Saturn',
     climate: 'windy',
     population: 0,
@@ -100,7 +100,7 @@ export const spaceObjects = [
   {
     id: 7,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Uranus',
     climate: 'cold, dull, windy',
     population: 0,
@@ -114,7 +114,7 @@ export const spaceObjects = [
   {
     id: 8,
     type: 'planet',
-    categoryTitle: 'Planets',
+    sectionTitle: 'Planets',
     name: 'Neptune',
     climate: 'cold, dull, windy',
     population: 0,
@@ -128,7 +128,7 @@ export const spaceObjects = [
   {
     id: 9,
     type: 'dwarf planet',
-    categoryTitle: 'Dwarf Planets',
+    sectionTitle: 'Dwarf Planets',
     name: 'Pluto',
     climate: 'cold, dry, clear',
     population: 0,
@@ -142,7 +142,7 @@ export const spaceObjects = [
   {
     id: 10,
     type: 'dwarf planet',
-    categoryTitle: 'Dwarf Planets',
+    sectionTitle: 'Dwarf Planets',
     name: 'Ceres',
     climate: 'it is too small to have its own climate',
     population: 0,
@@ -156,7 +156,7 @@ export const spaceObjects = [
   {
     id: 11,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Moon',
     climate: 'half sunny, half dark and cold',
     population: 0,
@@ -170,7 +170,7 @@ export const spaceObjects = [
   {
     id: 12,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Ganymede',
     climate: 'cold',
     population: 0,
@@ -184,7 +184,7 @@ export const spaceObjects = [
   {
     id: 13,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Callisto',
     climate: 'cold, no rain, no snow, nothing',
     population: 0,
@@ -198,7 +198,7 @@ export const spaceObjects = [
   {
     id: 14,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Europa',
     climate: 'icy',
     population: 0,
@@ -212,7 +212,7 @@ export const spaceObjects = [
   {
     id: 15,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Io',
     climate: 'it is burning!',
     population: 0,
@@ -226,7 +226,7 @@ export const spaceObjects = [
   {
     id: 16,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Phobos',
     climate: 'too small to have its own climate',
     population: 0,
@@ -240,7 +240,7 @@ export const spaceObjects = [
   {
     id: 17,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Deimos',
     climate: 'too small to have its own climate',
     population: 0,
@@ -254,7 +254,7 @@ export const spaceObjects = [
   {
     id: 18,
     type: 'satellite',
-    categoryTitle: 'Satellites',
+    sectionTitle: 'Satellites',
     name: 'Titan',
     climate: 'cold, very cold',
     population: 0,

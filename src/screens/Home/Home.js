@@ -1,14 +1,36 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { FlatList, View } from 'react-native';
+import { FlatList, SectionList, View, Text } from 'react-native';
 import SpaceObjectSummary from './components/SpaceObjectSummary';
 import PropTypes from 'prop-types';
+import { listTypes } from '../../constants/listTypes';
 import withLayout from '../../layouts/withLayout';
 import Title from '../../components/Title/Title';
 import { texts } from '../../constants/texts';
 
 const Home = ({ navigation }) => {
-  const spaceObjects = useSelector((state) => state.spaceObjects.data);
+  const listType = useSelector((state) => state.spaceObjects.listType);
+  const flatListData = useSelector((state) => state.spaceObjects.data);
+
+  const getSectionListData = (flatData) =>
+    flatData.reduce((acc, item) => {
+      const section = acc.find(
+        (element) => element?.title === item.sectionTitle
+      );
+
+      if (!section) {
+        acc.push({ title: item.sectionTitle, data: [item] });
+        return acc;
+      }
+
+      section.data.push(item);
+      return acc;
+    }, []);
+
+  const data =
+    listType === listTypes.FLAT
+      ? flatListData
+      : getSectionListData(flatListData);
 
   const renderItem = ({ item }) => {
     const { id, name, type, image } = item;
@@ -29,14 +51,26 @@ const Home = ({ navigation }) => {
     );
   };
 
+  const renderSectionHeader = ({ section: { title } }) => <Text>{title}</Text>;
+
   return (
     <View>
       <Title text={texts.home.title} />
-      <FlatList
-        data={spaceObjects}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      {listType === listTypes.FLAT ? (
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      ) : (
+        <SectionList
+          sections={data}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          renderSectionHeader={renderSectionHeader}
+          stickySectionHeadersEnabled={true}
+        />
+      )}
     </View>
   );
 };
