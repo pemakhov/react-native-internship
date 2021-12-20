@@ -2,9 +2,10 @@ import { SET_DATA, SET_LOADED, TOGGLE_LIST_TYPE } from './types';
 import { listTypes } from '../../constants/listTypes';
 
 const initialState = {
-  listType: listTypes.SECTION,
+  listType: listTypes.FLAT,
   loaded: false,
   data: [],
+  sectionData: [],
 };
 
 export default function (state = initialState, action) {

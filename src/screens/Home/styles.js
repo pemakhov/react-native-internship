@@ -25,4 +25,12 @@ export default StyleSheet.create({
   text: {
     color: '#EAE0D5',
   },
+  sectionListHeaderContainer: {
+    backgroundColor: '#f4f4f4',
+    paddingVertical: 5,
+  },
+  sectionListHeaderText: {
+    fontSize: 18,
+    color: 'black',
+  },
 });

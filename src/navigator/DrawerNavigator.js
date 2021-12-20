@@ -8,8 +8,11 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={TabNavigator} />
+    <Drawer.Navigator initialRouteName="The Solar System Travel Guide">
+      <Drawer.Screen
+        name="The Solar System Travel Guide"
+        component={TabNavigator}
+      />
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="SignIn" component={SignIn} />
     </Drawer.Navigator>

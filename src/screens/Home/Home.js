@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { FlatList, SectionList, View, Text } from 'react-native';
+import { FlatList, SectionList, View } from 'react-native';
 import SpaceObjectSummary from './components/SpaceObjectSummary';
 import PropTypes from 'prop-types';
 import { listTypes } from '../../constants/listTypes';
 import withLayout from '../../layouts/withLayout';
-import Title from '../../components/Title/Title';
-import { texts } from '../../constants/texts';
+import SectionHeader from './components/SectionHeader';
+import ListTypeToggler from './components/ListTypeToggler';
 
 const Home = ({ navigation }) => {
   const listType = useSelector((state) => state.spaceObjects.listType);
@@ -51,11 +51,13 @@ const Home = ({ navigation }) => {
     );
   };
 
-  const renderSectionHeader = ({ section: { title } }) => <Text>{title}</Text>;
+  const renderSectionHeader = ({ section: { title } }) => (
+    <SectionHeader text={title} />
+  );
 
   return (
     <View>
-      <Title text={texts.home.title} />
+      <ListTypeToggler />
       {listType === listTypes.FLAT ? (
         <FlatList
           data={data}
