@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   touchable: {
     borderRadius: 10,
     marginVertical: 5,
@@ -8,7 +11,7 @@ export default StyleSheet.create({
     padding: 15,
     backgroundColor: 'black',
   },
-  container: {
+  summaryContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -31,6 +34,15 @@ export default StyleSheet.create({
   },
   sectionListHeaderText: {
     fontSize: 18,
+    color: 'black',
+  },
+  listTypeTogglerContainer: {
+    flexDirection: 'row',
+    paddingVertical: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  listTypeTogglerText: {
     color: 'black',
   },
 });

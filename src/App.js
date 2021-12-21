@@ -6,13 +6,17 @@ import RNBootSplash from 'react-native-bootsplash';
 import DrawerNavigator from './navigator/DrawerNavigator';
 import Loading from './screens/Loading/Loading';
 import { retrieveTraveler } from './store/travelers/actions';
-import { fetchSpaceObjects } from './store/spaceObjects/actions';
+import {
+  fetchSpaceObjects,
+  retrieveListType,
+} from './store/spaceObjects/actions';
 
 const App = () => {
   const loaded = useSelector((state) => state.spaceObjects.loaded);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(retrieveTraveler());
+    dispatch(retrieveListType());
     dispatch(fetchSpaceObjects());
   }, [dispatch]);
 

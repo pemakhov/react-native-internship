@@ -9,17 +9,17 @@ import Divider from './components/Divider';
 import styles from './styles';
 
 /**
- * Deletes the 'id', 'description' and 'image properties and returns a new object
+ * Deletes the params that should not be rendered
  * @param {object} data source object
- * @returns new object with deleted properties
+ * @returns new object without deleted properties
  */
 const getInfo = (data) => {
-  const { id, description, image, ...info } = data;
+  const { id, description, sectionTitle, image, ...info } = data;
   return info;
 };
 
 const SpaceObject = ({ route }) => {
-  const spaceObjects = useSelector((state) => state.spaceObjects.data);
+  const spaceObjects = useSelector((state) => state.spaceObjects.data.flat);
   const { id, title } = route.params;
   const data = spaceObjects.find((current) => current.id === id);
   const info = getInfo(data);

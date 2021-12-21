@@ -12,7 +12,7 @@ const SpaceObjectSummary = ({ data, handlePress }) => {
       onPress={memoizedHandlePress}
       style={styles.touchable}
       activeOpacity={0.9}>
-      <View style={styles.container}>
+      <View style={styles.summaryContainer}>
         <Image source={image} style={styles.image} />
         <View>
           <Text style={styles.title}>{name}</Text>

@@ -1,36 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { FlatList, SectionList, View } from 'react-native';
+import { View } from 'react-native';
 import SpaceObjectSummary from './components/SpaceObjectSummary';
 import PropTypes from 'prop-types';
 import { listTypes } from '../../constants/listTypes';
 import withLayout from '../../layouts/withLayout';
-import SectionHeader from './components/SectionHeader';
 import ListTypeToggler from './components/ListTypeToggler';
+import FlatListData from './components/FlatListData';
+import SectionListData from './components/SectionListData';
+import styles from './styles';
 
 const Home = ({ navigation }) => {
   const listType = useSelector((state) => state.spaceObjects.listType);
-  const flatListData = useSelector((state) => state.spaceObjects.data);
-
-  const getSectionListData = (flatData) =>
-    flatData.reduce((acc, item) => {
-      const section = acc.find(
-        (element) => element?.title === item.sectionTitle
-      );
-
-      if (!section) {
-        acc.push({ title: item.sectionTitle, data: [item] });
-        return acc;
-      }
-
-      section.data.push(item);
-      return acc;
-    }, []);
-
-  const data =
-    listType === listTypes.FLAT
-      ? flatListData
-      : getSectionListData(flatListData);
 
   const renderItem = ({ item }) => {
     const { id, name, type, image } = item;
@@ -51,27 +32,13 @@ const Home = ({ navigation }) => {
     );
   };
 
-  const renderSectionHeader = ({ section: { title } }) => (
-    <SectionHeader text={title} />
-  );
-
   return (
-    <View>
+    <View style={styles.container}>
       <ListTypeToggler />
       {listType === listTypes.FLAT ? (
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-        />
+        <FlatListData renderItem={renderItem} />
       ) : (
-        <SectionList
-          sections={data}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          renderSectionHeader={renderSectionHeader}
-          stickySectionHeadersEnabled={true}
-        />
+        <SectionListData renderItem={renderItem} />
       )}
     </View>
   );

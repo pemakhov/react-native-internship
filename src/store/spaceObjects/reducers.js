@@ -1,11 +1,27 @@
-import { SET_DATA, SET_LOADED, TOGGLE_LIST_TYPE } from './types';
+import { SET_DATA, SET_LOADED, SET_LIST_TYPE } from './types';
 import { listTypes } from '../../constants/listTypes';
 
 const initialState = {
   listType: listTypes.FLAT,
   loaded: false,
-  data: [],
-  sectionData: [],
+  data: {
+    flat: [],
+    sectioned: [],
+  },
+};
+
+const getSectionedData = (flatData) => {
+  return flatData.reduce((acc, item) => {
+    const section = acc.find((element) => element?.title === item.sectionTitle);
+
+    if (!section) {
+      acc.push({ title: item.sectionTitle, data: [item] });
+      return acc;
+    }
+
+    section.data.push(item);
+    return acc;
+  }, []);
 };
 
 export default function (state = initialState, action) {
@@ -13,11 +29,11 @@ export default function (state = initialState, action) {
     case SET_LOADED:
       return { ...state, loaded: action.payload };
     case SET_DATA:
-      return { ...state, data: action.payload };
-    case TOGGLE_LIST_TYPE:
-      const listType =
-        state.listType === listTypes.FLAT ? listTypes.SECTION : listTypes.FLAT;
-      return { ...state, data: action.payload, listType };
+      const flat = action.payload;
+      const sectioned = getSectionedData(flat);
+      return { ...state, data: { flat, sectioned } };
+    case SET_LIST_TYPE:
+      return { ...state, listType: action.payload };
     default:
       return state;
   }
