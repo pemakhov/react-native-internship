@@ -1,16 +1,6 @@
-# Lesson 5
+# Lesson 7
 
-## App icon and splash screen
+## Lists
 
-- [x] replace name
-- [x] replace the icon
-- [x] add a splash screen
-
-
-# Lesson 6
-
-## Redux
-
-- [x] add redux as the data storage
-- [x] store data to AsyncStorage
-- [x] restore data from AsyncStorage
+- [x] FlatList
+- [x] SectionList
