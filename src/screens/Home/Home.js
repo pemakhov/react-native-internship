@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { View } from 'react-native';
 import SpaceObjectSummary from './components/SpaceObjectSummary';
@@ -32,13 +32,15 @@ const Home = ({ navigation }) => {
     );
   };
 
+  const memoizedRenderItem = useCallback(renderItem, [renderItem]);
+
   return (
     <View style={styles.container}>
       <ListTypeToggler />
       {listType === listTypes.FLAT ? (
-        <FlatListData renderItem={renderItem} />
+        <FlatListData renderItem={memoizedRenderItem} />
       ) : (
-        <SectionListData renderItem={renderItem} />
+        <SectionListData renderItem={memoizedRenderItem} />
       )}
     </View>
   );
