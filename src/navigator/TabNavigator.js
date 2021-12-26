@@ -9,13 +9,12 @@ const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
         name="Guide"
         component={StackNavigator}
         options={{
           tabBarIcon: () => <Icon name="home" color="#000" size={30} />,
-          headerShown: false,
         }}
       />
       <Tab.Screen
