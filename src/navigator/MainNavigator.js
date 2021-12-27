@@ -1,10 +1,18 @@
 import React from 'react';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import { colorThemes } from '../constants/colorThemes';
 import RNBootSplash from 'react-native-bootsplash';
 import DrawerNavigator from './DrawerNavigator';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
 
 function MainNavigator() {
-  const MyTheme = {
+  const { colorTheme } = useSelector((state) => state.colorThemes);
+
+  const MyLight = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
@@ -12,9 +20,13 @@ function MainNavigator() {
     },
   };
 
+  const MyDark = {
+    ...DarkTheme,
+  };
+
   return (
     <NavigationContainer
-      theme={MyTheme}
+      theme={colorTheme === colorThemes.light ? MyLight : MyDark}
       onReady={() => RNBootSplash.hide({ fade: true })}>
       <DrawerNavigator />
     </NavigationContainer>
