@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
-import RNBootSplash from 'react-native-bootsplash';
-import DrawerNavigator from './navigator/DrawerNavigator';
 import Loading from './screens/Loading/Loading';
+import MainNavigator from './navigator/MainNavigator';
 import { retrieveTraveler } from './store/travelers/actions';
 import {
   fetchSpaceObjects,
   retrieveListType,
 } from './store/spaceObjects/actions';
+import { retrieveColorTheme } from './store/colorThemes/actions';
 
 const App = () => {
   const loaded = useSelector((state) => state.spaceObjects.loaded);
@@ -18,17 +17,12 @@ const App = () => {
     dispatch(retrieveTraveler());
     dispatch(retrieveListType());
     dispatch(fetchSpaceObjects());
+    dispatch(retrieveColorTheme());
   }, [dispatch]);
 
   return (
     <SafeAreaProvider>
-      {loaded ? (
-        <NavigationContainer onReady={() => RNBootSplash.hide({ fade: true })}>
-          <DrawerNavigator />
-        </NavigationContainer>
-      ) : (
-        <Loading />
-      )}
+      {loaded ? <MainNavigator /> : <Loading />}
     </SafeAreaProvider>
   );
 };

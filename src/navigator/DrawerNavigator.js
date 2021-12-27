@@ -1,8 +1,8 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import TabNavigator from './TabNavigator';
-import About from '../screens/About/About';
 import SignIn from '../screens/SignIn/SignIn';
+import Settings from '../screens/Settings/Settings';
 
 const Drawer = createDrawerNavigator();
 
@@ -13,7 +13,7 @@ function DrawerNavigator() {
         name="The Solar System Travel Guide"
         component={TabNavigator}
       />
-      <Drawer.Screen name="About" component={About} />
+      <Drawer.Screen name="Settings" component={Settings} />
       <Drawer.Screen name="SignIn" component={SignIn} />
     </Drawer.Navigator>
   );

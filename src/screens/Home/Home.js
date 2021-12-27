@@ -5,7 +5,6 @@ import SpaceObjectSummary from './components/SpaceObjectSummary';
 import PropTypes from 'prop-types';
 import { listTypes } from '../../constants/listTypes';
 import withLayout from '../../layouts/withLayout';
-import ListTypeToggler from './components/ListTypeToggler';
 import FlatListData from './components/FlatListData';
 import SectionListData from './components/SectionListData';
 import styles from './styles';
@@ -36,7 +35,6 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ListTypeToggler />
       {listType === listTypes.FLAT ? (
         <FlatListData renderItem={memoizedRenderItem} />
       ) : (
