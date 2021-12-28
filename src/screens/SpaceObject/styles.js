@@ -5,8 +5,6 @@ const side = Dimensions.get('window').width;
 export default StyleSheet.create({
   scrollView: {
     flexGrow: 1,
-    backgroundColor: 'white',
-    color: 'black',
   },
   container: {
     marginHorizontal: 2,
@@ -18,7 +16,6 @@ export default StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    color: 'black',
   },
   divider: {
     marginVertical: 15,
@@ -27,8 +24,5 @@ export default StyleSheet.create({
   },
   infoRowContainer: {
     marginVertical: 2,
-  },
-  infoRowText: {
-    color: 'black',
   },
 });

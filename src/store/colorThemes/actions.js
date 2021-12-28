@@ -50,3 +50,12 @@ export const retrieveColorTheme = () => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const retrieveColorThemeSource = () => async (dispatch) => {
+  try {
+    const value = await AsyncStorage.getItem(COLOR_THEME_SOURCE);
+    return dispatch(setColorThemeSource(value));
+  } catch (error) {
+    console.log(error.message);
+  }
+};

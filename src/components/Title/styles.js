@@ -6,7 +6,6 @@ export default StyleSheet.create({
     marginVertical: 20,
   },
   text: {
-    color: 'black',
     fontSize: 24,
   },
 });

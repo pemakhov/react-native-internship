@@ -4,6 +4,17 @@ export default {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    primary: '#222',
+    primary: '#e07a5f',
+    background: '#353535',
+    switch: {
+      thumb: {
+        enabled: '#e07a5f',
+        disabled: '#787878',
+      },
+      track: {
+        false: '#565656',
+        true: '#f9dcc4',
+      },
+    },
   },
 };

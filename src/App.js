@@ -8,16 +8,20 @@ import {
   fetchSpaceObjects,
   retrieveListType,
 } from './store/spaceObjects/actions';
-import { retrieveColorTheme } from './store/colorThemes/actions';
+import {
+  retrieveColorTheme,
+  retrieveColorThemeSource,
+} from './store/colorThemes/actions';
 
 const App = () => {
   const loaded = useSelector((state) => state.spaceObjects.loaded);
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(retrieveColorThemeSource());
+    dispatch(retrieveColorTheme());
     dispatch(retrieveTraveler());
     dispatch(retrieveListType());
     dispatch(fetchSpaceObjects());
-    dispatch(retrieveColorTheme());
   }, [dispatch]);
 
   return (

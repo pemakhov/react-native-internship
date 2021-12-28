@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useTheme } from '@react-navigation/native';
 import { ScrollView, View, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import withLayout from '../../layouts/withLayout';
@@ -25,6 +26,8 @@ const SpaceObject = ({ route }) => {
   const info = getInfo(data);
   const { description } = data;
   const image = data.image.medium;
+  const { colors } = useTheme();
+
   return (
     <ScrollView style={styles.scrollView}>
       <Image source={image} style={styles.image} />
@@ -34,7 +37,9 @@ const SpaceObject = ({ route }) => {
           <InfoRow infoKey={item[0]} value={item[1]} key={item[0]} />
         ))}
         <Divider />
-        <Text style={styles.description}>{description}</Text>
+        <Text style={{ ...styles.description, color: colors.text }}>
+          {description}
+        </Text>
       </View>
     </ScrollView>
   );

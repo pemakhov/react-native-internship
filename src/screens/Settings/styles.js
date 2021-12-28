@@ -15,7 +15,7 @@ export default StyleSheet.create({
       borderBottomColor: '#aaa',
     },
     text: {
-      color: 'black',
+      fontSize: 16,
     },
   }),
 });

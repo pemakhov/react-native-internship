@@ -7,6 +7,7 @@ import { texts } from '../../../constants/texts';
 const SpaceObjectSummary = ({ data, handlePress }) => {
   const { id, name, type, image } = data;
   const memoizedHandlePress = useCallback(handlePress, [id, name, handlePress]);
+
   return (
     <TouchableOpacity
       onPress={memoizedHandlePress}

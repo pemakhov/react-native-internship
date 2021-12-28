@@ -1,32 +1,28 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { colorThemes } from '../constants/colorThemes';
+import { useColorScheme } from 'react-native';
+import { colorThemes, colorThemeSources } from '../constants/colorThemes';
 import RNBootSplash from 'react-native-bootsplash';
 import DrawerNavigator from './DrawerNavigator';
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import MyDarkTheme from '../themes/dark';
+import MyLightTheme from '../themes/light';
 
 function MainNavigator() {
-  const { colorTheme } = useSelector((state) => state.colorThemes);
+  const { colorTheme: userTheme, colorThemeSource } = useSelector(
+    (state) => state.colorThemes
+  );
 
-  const MyLight = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      primary: '#eee',
-    },
-  };
+  const deviceTheme = useColorScheme();
 
-  const MyDark = {
-    ...DarkTheme,
-  };
+  const theme =
+    colorThemeSource === colorThemeSources.device && deviceTheme
+      ? deviceTheme
+      : userTheme;
 
   return (
     <NavigationContainer
-      theme={colorTheme === colorThemes.light ? MyLight : MyDark}
+      theme={theme === colorThemes.light ? MyLightTheme : MyDarkTheme}
       onReady={() => RNBootSplash.hide({ fade: true })}>
       <DrawerNavigator />
     </NavigationContainer>

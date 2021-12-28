@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import TogglerItem from './components/TogglerItem';
 import { listTypes } from '../../constants/listTypes';
 import { toggleListType } from '../../store/spaceObjects/actions';
@@ -36,7 +36,6 @@ function Settings() {
         onValueChange={() => dispatch(toggleColorTheme(colorTheme))}
         disabled={colorThemeSource === colorThemeSources.device}
       />
-      <Text>{colorTheme}</Text>
     </ScrollView>
   );
 }
