@@ -4,16 +4,17 @@ export default {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#e07a5f',
+    primary: '#33658a',
     background: '#fcfcfc',
+    placeholder: '#898989',
     switch: {
       thumb: {
-        enabled: '#e07a5f',
+        enabled: '#33658a',
         disabled: '#f4f3f4',
       },
       track: {
-        false: '#dedede',
-        true: '#f9dcc4',
+        false: '#cdcdcd',
+        true: '#55879c',
       },
     },
   },

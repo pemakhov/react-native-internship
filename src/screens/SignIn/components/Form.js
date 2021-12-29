@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, TextInput, Button } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 import { useFormik } from 'formik';
 import ValidationSchema from './ValidationSchema';
 import styles from '../styles';
@@ -38,6 +39,8 @@ function Form() {
     ? '#FF5A5F'
     : '#223e4b';
 
+  const { colors } = useTheme();
+
   return (
     <View>
       <View style={styles.formContainer}>
@@ -49,6 +52,8 @@ function Form() {
             error={errors.name}
             touched={touched.name}
             placeholder="Name"
+            placeholderTextColor={colors.placeholder}
+            style={{ color: colors.text }}
           />
         </View>
         <Button onPress={handleSubmit} title="Sign In" />
