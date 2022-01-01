@@ -12,6 +12,21 @@ import styles from './styles';
 const Home = ({ navigation }) => {
   const { listType, data } = useSelector((state) => state.spaceObjects);
 
+  const getSectionedData = (flatData) =>
+    flatData.reduce((acc, item) => {
+      const section = acc.find(
+        (element) => element?.title === item.sectionTitle
+      );
+
+      if (!section) {
+        acc.push({ title: item.sectionTitle, data: [item] });
+        return acc;
+      }
+
+      section.data.push(item);
+      return acc;
+    }, []);
+
   const renderItem = ({ item }) => {
     const { id, name, type, image } = item;
 
@@ -31,24 +46,8 @@ const Home = ({ navigation }) => {
     );
   };
 
-  const memoizedRenderItem = useCallback(renderItem, [renderItem]);
-
-  const getSectionedData = (flatData) =>
-    flatData.reduce((acc, item) => {
-      const section = acc.find(
-        (element) => element?.title === item.sectionTitle
-      );
-
-      if (!section) {
-        acc.push({ title: item.sectionTitle, data: [item] });
-        return acc;
-      }
-
-      section.data.push(item);
-      return acc;
-    }, []);
-
   const memoizedSectionedData = useMemo(() => getSectionedData(data), [data]);
+  const memoizedRenderItem = useCallback(renderItem, [renderItem]);
 
   return (
     <View style={styles.container}>
