@@ -1,6 +1,5 @@
 import React from 'react';
 import { SectionList } from 'react-native';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import SectionHeader from './SectionHeader';
 
@@ -8,9 +7,7 @@ const renderSectionHeader = ({ section: { title } }) => (
   <SectionHeader text={title} />
 );
 
-function SectionListData({ renderItem }) {
-  const data = useSelector((state) => state.spaceObjects.data.sectioned);
-
+function SectionListData({ data, renderItem }) {
   return (
     <SectionList
       sections={data}
@@ -23,6 +20,7 @@ function SectionListData({ renderItem }) {
 }
 
 SectionListData.propTypes = {
+  data: PropTypes.array.isRequired,
   renderItem: PropTypes.func.isRequired,
 };
 

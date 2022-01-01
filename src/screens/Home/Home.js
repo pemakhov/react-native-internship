@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { View } from 'react-native';
 import SpaceObjectSummary from './components/SpaceObjectSummary';
@@ -10,7 +10,7 @@ import SectionListData from './components/SectionListData';
 import styles from './styles';
 
 const Home = ({ navigation }) => {
-  const listType = useSelector((state) => state.spaceObjects.listType);
+  const { listType, data } = useSelector((state) => state.spaceObjects);
 
   const renderItem = ({ item }) => {
     const { id, name, type, image } = item;
@@ -33,12 +33,32 @@ const Home = ({ navigation }) => {
 
   const memoizedRenderItem = useCallback(renderItem, [renderItem]);
 
+  const getSectionedData = (flatData) =>
+    flatData.reduce((acc, item) => {
+      const section = acc.find(
+        (element) => element?.title === item.sectionTitle
+      );
+
+      if (!section) {
+        acc.push({ title: item.sectionTitle, data: [item] });
+        return acc;
+      }
+
+      section.data.push(item);
+      return acc;
+    }, []);
+
+  const memoizedSectionedData = useMemo(() => getSectionedData(data), [data]);
+
   return (
     <View style={styles.container}>
       {listType === listTypes.FLAT ? (
-        <FlatListData renderItem={memoizedRenderItem} />
+        <FlatListData data={data} renderItem={memoizedRenderItem} />
       ) : (
-        <SectionListData renderItem={memoizedRenderItem} />
+        <SectionListData
+          data={memoizedSectionedData}
+          renderItem={memoizedRenderItem}
+        />
       )}
     </View>
   );

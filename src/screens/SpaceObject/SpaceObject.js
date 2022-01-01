@@ -20,7 +20,7 @@ const getInfo = (data) => {
 };
 
 const SpaceObject = ({ route }) => {
-  const spaceObjects = useSelector((state) => state.spaceObjects.data.flat);
+  const spaceObjects = useSelector((state) => state.spaceObjects.data);
   const { id, title } = route.params;
   const data = spaceObjects.find((current) => current.id === id);
   const info = getInfo(data);

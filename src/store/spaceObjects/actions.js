@@ -4,7 +4,7 @@ import { LIST_TYPE } from '../../constants/asyncStorageData';
 import { listTypes } from '../../constants/listTypes';
 import { spaceObjects } from '../../assets/spaceObjects';
 
-export const setSpaceObjects = (data) => ({ type: SET_DATA, payload: data });
+export const setData = (data) => ({ type: SET_DATA, payload: data });
 
 export const setLoaded = (loaded) => ({ type: SET_LOADED, payload: loaded });
 
@@ -15,7 +15,7 @@ export const setListType = (listType) => ({
 
 export const fetchSpaceObjects = () => (dispatch) => {
   setTimeout(() => {
-    dispatch(setSpaceObjects(spaceObjects));
+    dispatch(setData(spaceObjects));
     dispatch(setLoaded(true));
   }, 1000);
 };

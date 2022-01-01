@@ -1,11 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-function FlatListData({ renderItem }) {
-  const data = useSelector((state) => state.spaceObjects.data.flat);
-
+function FlatListData({ data, renderItem }) {
   return (
     <FlatList
       data={data}
@@ -16,6 +13,7 @@ function FlatListData({ renderItem }) {
 }
 
 FlatListData.propTypes = {
+  data: PropTypes.array.isRequired,
   renderItem: PropTypes.func.isRequired,
 };
 
