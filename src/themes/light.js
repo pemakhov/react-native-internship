@@ -4,18 +4,26 @@ export default {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#33658a',
+    primary: '#058ed9',
     background: '#fcfcfc',
     placeholder: '#898989',
+    negative: {
+      background: '#353535',
+      text: '#fcfcfc',
+    },
     switch: {
       thumb: {
-        enabled: '#33658a',
+        enabled: '#058ed9',
         disabled: '#f4f3f4',
       },
       track: {
         false: '#cdcdcd',
-        true: '#55879c',
+        true: '#60c5fb',
       },
+    },
+    textInput: {
+      border: '#223e4b',
+      error: '#f50008',
     },
   },
 };

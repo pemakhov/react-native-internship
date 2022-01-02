@@ -6,14 +6,15 @@ import styles from '../styles';
 
 function SectionHeader({ text }) {
   const { colors } = useTheme();
+  const { sectionList: sectionListStyles } = styles;
 
   return (
     <View
       style={{
-        ...styles.sectionListHeaderContainer,
+        ...sectionListStyles.headerContainer,
         backgroundColor: colors.background,
       }}>
-      <Text style={{ ...styles.sectionListHeaderText, color: colors.text }}>
+      <Text style={{ ...sectionListStyles.headerText, color: colors.text }}>
         {text}
       </Text>
     </View>

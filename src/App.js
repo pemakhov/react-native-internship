@@ -16,6 +16,7 @@ import {
 const App = () => {
   const loaded = useSelector((state) => state.spaceObjects.loaded);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(retrieveColorThemeSource());
     dispatch(retrieveColorTheme());

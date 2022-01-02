@@ -4,17 +4,18 @@ import { View, Text, TextInput, Button } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import { useFormik } from 'formik';
 import ValidationSchema from './ValidationSchema';
-import styles from '../styles';
 import {
   updateTraveler,
   deleteTraveler,
 } from '../../../store/travelers/actions';
 import SignOutButton from './SignOutButton';
+import styles from '../styles';
 
 function Form() {
   const initialValues = { name: '' };
   const dispatch = useDispatch();
   const traveler = useSelector((state) => state.travelers.traveler);
+  const { colors } = useTheme();
 
   const {
     handleChange,
@@ -34,12 +35,10 @@ function Form() {
   });
 
   const validationColor = !touched
-    ? '#223e4b'
+    ? colors.textInput.border
     : errors.name
-    ? '#FF5A5F'
-    : '#223e4b';
-
-  const { colors } = useTheme();
+    ? colors.textInput.error
+    : colors.textInput.border;
 
   return (
     <View>
@@ -58,7 +57,9 @@ function Form() {
         </View>
         <Button onPress={handleSubmit} title="Sign In" />
       </View>
-      {errors.name && <Text style={styles.error}>{errors.name}</Text>}
+      {errors.name && (
+        <Text style={{ color: colors.textInput.error }}>{errors.name}</Text>
+      )}
       {traveler && (
         <SignOutButton handleSignOut={() => dispatch(deleteTraveler())} />
       )}

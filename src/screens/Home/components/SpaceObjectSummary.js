@@ -7,17 +7,18 @@ import { texts } from '../../../constants/texts';
 const SpaceObjectSummary = ({ data, handlePress }) => {
   const { id, name, type, image } = data;
   const memoizedHandlePress = useCallback(handlePress, [id, name, handlePress]);
+  const { spaceObjectSummary: summaryStyles } = styles;
 
   return (
     <TouchableOpacity
       onPress={memoizedHandlePress}
       style={styles.touchable}
       activeOpacity={0.9}>
-      <View style={styles.summaryContainer}>
-        <Image source={image} style={styles.image} />
+      <View style={summaryStyles.container}>
+        <Image source={image} style={summaryStyles.image} />
         <View>
-          <Text style={styles.title}>{name}</Text>
-          <Text style={styles.text}>
+          <Text style={summaryStyles.title}>{name}</Text>
+          <Text style={summaryStyles.text}>
             {texts.spaceObjectSummary.type}: {type}
           </Text>
         </View>
