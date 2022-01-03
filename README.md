@@ -1,6 +1,6 @@
-# Lesson 7
+# Lesson 8
 
-## Lists
+## Theming
 
-- [x] FlatList
-- [x] SectionList
+- [x] Device-based theme
+- [x] User-choice-based theme
