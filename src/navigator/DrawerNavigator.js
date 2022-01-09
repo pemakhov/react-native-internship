@@ -3,6 +3,7 @@ import { useTheme } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import TabNavigator from './TabNavigator';
 import SignIn from '../screens/SignIn/SignIn';
+import Map from '../screens/Map/Map';
 import Settings from '../screens/Settings/Settings';
 
 const Drawer = createDrawerNavigator();
@@ -19,6 +20,7 @@ function DrawerNavigator() {
         component={TabNavigator}
       />
       <Drawer.Screen name="Settings" component={Settings} />
+      <Drawer.Screen name="Map" component={Map} />
       <Drawer.Screen name="SignIn" component={SignIn} />
     </Drawer.Navigator>
   );
