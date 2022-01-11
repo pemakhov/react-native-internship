@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Map from '../screens/Map/Map';
 import Settings from '../screens/Settings/Settings';
 import SignIn from '../screens/SignIn/SignIn';
 import StackNavigator from './StackNavigator';
@@ -19,6 +20,15 @@ function TabNavigator() {
         options={{
           tabBarIcon: () => (
             <Icon name="home" color={colors.primary} size={30} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Map"
+        component={Map}
+        options={{
+          tabBarIcon: () => (
+            <Icon name="map-marker" color={colors.primary} size={30} />
           ),
         }}
       />

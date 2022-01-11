@@ -1,6 +1,7 @@
-# Lesson 8
+# Lesson 9
 
-## Theming
+## Maps
 
-- [x] Device-based theme
-- [x] User-choice-based theme
+- [x] Add map
+- [x] Put a custom marker
+- [x] Draw a polygon
