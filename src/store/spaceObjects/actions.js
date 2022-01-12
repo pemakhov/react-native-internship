@@ -33,7 +33,7 @@ export const toggleListType = (previousListType) => async (dispatch) => {
 
 export const retrieveListType = () => async (dispatch) => {
   try {
-    const value = await AsyncStorage.getItem(LIST_TYPE);
+    const value = (await AsyncStorage.getItem(LIST_TYPE)) || listTypes.FLAT;
     return dispatch(setListType(value));
   } catch (error) {
     console.log(error.message);

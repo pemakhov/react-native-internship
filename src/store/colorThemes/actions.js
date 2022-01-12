@@ -44,7 +44,8 @@ export const toggleColorThemeSource = (previousSource) => async (dispatch) => {
 
 export const retrieveColorTheme = () => async (dispatch) => {
   try {
-    const value = await AsyncStorage.getItem(COLOR_THEME);
+    const value =
+      (await AsyncStorage.getItem(COLOR_THEME)) || colorThemes.light;
     return dispatch(setColorTheme(value));
   } catch (error) {
     console.log(error.message);
@@ -53,7 +54,9 @@ export const retrieveColorTheme = () => async (dispatch) => {
 
 export const retrieveColorThemeSource = () => async (dispatch) => {
   try {
-    const value = await AsyncStorage.getItem(COLOR_THEME_SOURCE);
+    const value =
+      (await AsyncStorage.getItem(COLOR_THEME_SOURCE)) ||
+      colorThemeSources.device;
     return dispatch(setColorThemeSource(value));
   } catch (error) {
     console.log(error.message);

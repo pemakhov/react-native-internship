@@ -16,7 +16,7 @@ function Settings() {
     (state) => state.colorThemes
   );
 
-  const listType = useSelector((state) => state.spaceObjects.listType);
+  const { listType } = useSelector((state) => state.spaceObjects);
   const dispatch = useDispatch();
   return (
     <ScrollView style={styles.container}>
