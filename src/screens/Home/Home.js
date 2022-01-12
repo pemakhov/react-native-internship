@@ -13,17 +13,18 @@ const Home = ({ navigation }) => {
   const { listType, data } = useSelector((state) => state.spaceObjects);
 
   const getSectionedData = (flatData) => {
-    const sections = flatData.reduce((acc, item) => {
-      const { sectionTitle } = item;
-      if (acc.hasOwnProperty(sectionTitle)) {
-        acc[sectionTitle].data = [...acc[sectionTitle].data, item];
-      } else {
-        acc[sectionTitle] = { title: sectionTitle, data: [item] };
-      }
-      return acc;
-    }, {});
+    const sections = flatData.reduce(
+      (acc, item) => ({
+        ...acc,
+        [item.sectionTitle]: [...(acc?.[item.sectionTitle] || []), item],
+      }),
+      {}
+    );
 
-    return Object.values(sections);
+    return Object.entries(sections).map((item) => ({
+      title: item[0],
+      data: item[1],
+    }));
   };
 
   const renderItem = ({ item }) => {
