@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, TextInput, Button } from 'react-native';
 import { useTheme } from '@react-navigation/native';
-import { useFormik } from 'formik';
+import { useFormik, setErrors } from 'formik';
 import ValidationSchema from './ValidationSchema';
 import {
   updateTraveler,
@@ -24,11 +24,15 @@ function Form() {
     values,
     errors,
     touched,
+    dirty,
     resetForm,
   } = useFormik({
     validationSchema: ValidationSchema,
     initialValues,
     onSubmit: ({ name }) => {
+      if (!name) {
+        return;
+      }
       dispatch(updateTraveler(name));
       resetForm({ values: initialValues });
     },
@@ -55,7 +59,7 @@ function Form() {
             style={{ color: colors.text }}
           />
         </View>
-        <Button onPress={handleSubmit} title="Sign In" />
+        <Button onPress={handleSubmit} disabled={!dirty} title="Sign In" />
       </View>
       {errors.name && (
         <Text style={{ color: colors.textInput.error }}>{errors.name}</Text>
