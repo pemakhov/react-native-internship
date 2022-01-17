@@ -33,8 +33,8 @@ const SpaceObject = ({ route }) => {
       <Image source={image} style={styles.image} />
       <View style={styles.container}>
         <Title text={title} />
-        {Object.entries(info).map((item) => (
-          <InfoRow infoKey={item[0]} value={item[1]} key={item[0]} />
+        {Object.entries(info).map(([key, value]) => (
+          <InfoRow infoKey={key} value={value} key={key} />
         ))}
         <Divider />
         <Text style={{ ...styles.description, color: colors.text }}>

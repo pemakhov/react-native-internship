@@ -21,9 +21,9 @@ const Home = ({ navigation }) => {
       {}
     );
 
-    return Object.entries(sections).map((item) => ({
-      title: item[0],
-      data: item[1],
+    return Object.entries(sections).map(([title, sectionData]) => ({
+      title,
+      data: sectionData,
     }));
   };
 
