@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useSelector, useDispatch } from 'react-redux';
+import { Alert } from 'react-native';
+import messaging from '@react-native-firebase/messaging';
 import Loading from './screens/Loading/Loading';
 import MainNavigator from './navigator/MainNavigator';
 import { retrieveTraveler } from './store/travelers/actions';
@@ -23,6 +25,11 @@ const App = () => {
     dispatch(retrieveTraveler());
     dispatch(retrieveListType());
     dispatch(fetchSpaceObjects());
+    const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+    });
+
+    return unsubscribe;
   }, [dispatch]);
 
   return (

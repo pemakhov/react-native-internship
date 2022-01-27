@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229269488370",
+    "project_id": "the-solar-system-travel-guide",
+    "storage_bucket": "the-solar-system-travel-guide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229269488370:android:71dcc9d6c1ac5d987dc66b",
+        "android_client_info": {
+          "package_name": "com.tufvoyaging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229269488370-2i73c2dqnvctmq6iu83mpd3vb1dar8r8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQMcqm44yqf8F6rVpA0Unx8NXHpjhLp2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229269488370-2i73c2dqnvctmq6iu83mpd3vb1dar8r8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
